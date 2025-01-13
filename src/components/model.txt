@@ -1,0 +1,318 @@
+      
+      {/* modal ------------------------------------ */}
+
+      <div className={`booking-modal ${modal ? "active-modal" : ""}`}>
+        {/* title */}
+        <div className="booking-modal__title">
+          <h2>Complete Reservation</h2>
+          <i onClick={openModal} className="fa-solid fa-xmark"></i>
+        </div>
+        {/* message */}
+        <div className="booking-modal__message">
+          <h4>
+            <i className="fa-solid fa-circle-info"></i> Upon completing this
+            reservation enquiry, you will receive:
+          </h4>
+          <p>
+            Your rental voucher to produce on arrival at the rental desk and a
+            toll-free customer support number.
+          </p>
+        </div>
+        {/* car info */}
+        <div className="booking-modal__car-info">
+          <div className="dates-div">
+            <div className="booking-modal__car-info__dates">
+              <h5>Location & Date</h5>
+              <span>
+                <i className="fa-solid fa-location-dot"></i>
+                <div>
+                  <h6>Pick-Up Date & Time</h6>
+                  <p>
+                    {pickTime} /{" "}
+                    <input type="time" className="input-time"></input>
+                  </p>
+                </div>
+              </span>
+            </div>
+
+            <div className="booking-modal__car-info__dates">
+              <span>
+                <i className="fa-solid fa-location-dot"></i>
+                <div>
+                  <h6>Drop-Off Date & Time</h6>
+                  <p>
+                    {dropTime} /{" "}
+                    <input type="time" className="input-time"></input>
+                  </p>
+                </div>
+              </span>
+            </div>
+
+            <div className="booking-modal__car-info__dates">
+              <span>
+                <i className="fa-solid fa-calendar-days"></i>
+                <div>
+                  <h6>Pick-Up adn Drop-Off Location</h6>
+                  <p>{pickUpandDropoff}</p>
+                </div>
+              </span>
+            </div>
+          </div>
+          <div className="booking-modal__car-info__model">
+            <h5>
+              <span>Car -</span> {carType}
+            </h5>
+            {imgUrl && <img src={imgUrl} alt="car_img" />}
+          </div>
+        </div>
+        {/* personal info */}
+        <div className="booking-modal__person-info">
+          <h4>Personal Information</h4>
+          <form className="info-form">
+            <div className="info-form__2col">
+              <span>
+                <label>
+                  First Name <b>*</b>
+                </label>
+                <input
+                  value={name}
+                  onChange={handleName}
+                  type="text"
+                  placeholder="Enter your first name"
+                ></input>
+                <p className="error-modal">This field is required.</p>
+              </span>
+
+              <span>
+                <label>
+                  Last Name <b>*</b>
+                </label>
+                <input
+                  value={lastName}
+                  onChange={handleLastName}
+                  type="text"
+                  placeholder="Enter your last name"
+                ></input>
+                <p className="error-modal ">This field is required.</p>
+              </span>
+
+              <span>
+                <label>
+                  Phone Number <b>*</b>
+                </label>
+                <input
+                  value={phone}
+                  onChange={handlePhone}
+                  type="tel"
+                  placeholder="Enter your phone number"
+                ></input>
+                <p className="error-modal">This field is required.</p>
+              </span>
+
+              <span>
+                <label>
+                  Age <b>*</b>
+                </label>
+                <input
+                  value={age}
+                  onChange={handleAge}
+                  type="number"
+                  placeholder="18"
+                ></input>
+                <p className="error-modal ">This field is required.</p>
+              </span>
+            </div>
+
+            <div className="info-form__1col">
+              <span>
+                <label>
+                  Email <b>*</b>
+                </label>
+                <input
+                  value={email}
+                  onChange={handleEmail}
+                  type="email"
+                  placeholder="Enter your email address"
+                ></input>
+                <p className="error-modal">This field is required.</p>
+              </span>
+
+              <span>
+                <label>
+                  Address <b>*</b>
+                </label>
+                <input
+                  value={address}
+                  onChange={handleAddress}
+                  type="text"
+                  placeholder="Enter your street address"
+                ></input>
+                <p className="error-modal ">This field is required.</p>
+              </span>
+            </div>
+
+            <div className="info-form__2col">
+              <span>
+                <label>
+                  City <b>*</b>
+                </label>
+                <input
+                  value={city}
+                  onChange={handleCity}
+                  type="text"
+                  placeholder="Enter your city"
+                ></input>
+                <p className="error-modal">This field is required.</p>
+              </span>
+
+              <span>
+                <label>
+                  Zip Code <b>*</b>
+                </label>
+                <input
+                  value={zipcode}
+                  onChange={handleZip}
+                  type="text"
+                  placeholder="Enter your zip code"
+                ></input>
+                <p className="error-modal ">This field is required.</p>
+              </span>
+            </div>
+
+            <span className="info-form__checkbox">
+              <input type="checkbox"></input>
+              <p>Please send me latest news and updates</p>
+            </span>
+
+            <div className="reserve-button">
+              <button onClick={confirmBooking}>Reserve Now</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      
+  const handleName = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleLastName = (e) => {
+    setLastName(e.target.value);
+  };
+
+  const handlePhone = (e) => {
+    setPhone(e.target.value);
+  };
+
+  const handleAge = (e) => {
+    setAge(e.target.value);
+  };
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleAddress = (e) => {
+    setAddress(e.target.value);
+  };
+
+  const handleCity = (e) => {
+    setCity(e.target.value);
+  };
+
+  const handleZip = (e) => {
+    setZipCode(e.target.value);
+  };
+
+    const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [age, setAge] = useState("");
+  const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [zipcode, setZipCode] = useState("");
+
+    let imgUrl;
+  switch (carImg) {
+    case "Audi A1 S-Line":
+      imgUrl = CarAudi;
+      break;
+    case "VW Golf 6":
+      imgUrl = CarGolf;
+      break;
+    case "Toyota Camry":
+      imgUrl = CarToyota;
+      break;
+    case "BMW 320 ModernLine":
+      imgUrl = CarBmw;
+      break;
+    case "Mercedes-Benz GLK":
+      imgUrl = CarMercedes;
+      break;
+    case "VW Passat CC":
+      imgUrl = CarPassat;
+      break;
+    default:
+      imgUrl = "";
+  }
+
+    // disable page scroll when modal is displayed
+  useEffect(() => {
+    if (modal === true) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [modal]);
+
+          <div
+          onClick={openModal}
+          className={`modal-overlay ${modal ? "active-modal" : ""}`}
+        ></div>
+
+          // confirm modal booking
+  const confirmBooking = (e) => {
+    e.preventDefault();
+    setModal(!modal);
+    const doneMsg = document.querySelector(".booking-done");
+    doneMsg.style.display = "flex";
+  };
+  
+  {/*     <HeroPages name="ຄົ້ນຫາ" />
+      <BookCar />
+      <div className="booking">
+        {" "}
+        <h1>ຜົນການຄົ້ນຫາ: ລົດທີ່ມີທັງຫມົດ</h1>
+        <div className="booking__cards">
+          <div className="car-card">
+            <img
+              src="https://search.drivehub.com/_next/image?url=https%3A%2F%2Fdrivehubv3.s3-ap-southeast-1.amazonaws.com%2Fcars%2F7d80780c-c391-4877-a8f9-806d92922e33%2Fphotos%2Fcb152f75-19ce-4dd4-9c90-e4d8fbe342f5%2Flarge.png&w=1920&q=100" // แทนที่ด้วย URL ของรูปภาพจริง
+              alt="Honda City 2010"
+              className="car-card__image"
+            />
+            <div className="car-card__content">
+              <h3 className="car-card__title">Honda City 2010</h3>
+              <p className="car-card__description">
+                รถเก๋ง 4 ประตู, เครื่องยนต์ 1,500 cc, น้ำมันเบนซิน
+              </p>
+              <p className="car-card__insurance">
+                ฟรีประกันภัยชั้น 1 เพิ่มพื้นฐาน
+              </p>
+              <div className="car-card__rating">
+                <span className="car-card__rating__badge">LOCAL</span>
+                <span>บริษัท เซเว่น โลกรถ จำกัด</span>
+                <span className="car-card__rating__stars">⭐ 4.5 (216 รีวิว)</span>
+              </div>
+              <div className="stroke"></div>
+              <div className="car-card__price">
+                <h4 className="car-card__price-amount">฿795</h4>
+                <p className="car-card__price-total">รวม 2 วัน ฿1,590</p>
+              </div>
+              <div className="car-card-bnt">
+              <button className="car-card-bnt__button">รายละเอียดรถเช่า</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>*/}
