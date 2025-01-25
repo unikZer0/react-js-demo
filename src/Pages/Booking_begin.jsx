@@ -16,7 +16,7 @@ function Booking_begin() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const { pickUpandDropoff: initialPickUpandDropoff, pickTime: initialPickTime, dropTime: initialDropTime } = location.state || {};
+  const { pickUpandDropoff: initialPickUpandDropoff, pickTime: initialPickTime, dropTime: initialDropTime,startTime, endTime } = location.state || {};
 
   useEffect(() => {
     if (initialPickUpandDropoff) setPickUpandDropoff(initialPickUpandDropoff);
@@ -74,9 +74,11 @@ function Booking_begin() {
             pickUpandDropoff,
             pickTime,
             dropTime,
+            startTime,
+            endTime,
             days,
             total,
-            car,
+            car
           },
         });
       }
@@ -84,11 +86,18 @@ function Booking_begin() {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="loading-state">ກຳລັງໂຫລດ...</div>;
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return (
+      <div className="error-state">
+        <p>{error}</p>
+        <button className="rent-button" onClick={() => window.location.reload()}>
+          ລອງໃຫມ່
+        </button>
+      </div>
+    );
   }
 
   return (
