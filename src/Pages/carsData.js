@@ -6,19 +6,7 @@ export const cars = [
       image: "https://search.drivehub.com/_next/image?url=https%3A%2F%2Fdrivehubv3.s3-ap-southeast-1.amazonaws.com%2Fcars%2F7d80780c-c391-4877-a8f9-806d92922e33%2Fphotos%2Fcb152f75-19ce-4dd4-9c90-e4d8fbe342f5%2Flarge.png&w=1920&q=100",
       title: "Honda City 2010",
       description: "รถเก๋ง 4 ประตู, เครื่องยนต์ 1,500 cc, น้ำมันเบนซิน",
-      insurance: "ฟรีประกันภัยชั้น 1 เพิ่มพื้นฐาน",
-      rating: {
-        badge: "LOCAL",
-        company: "บริษัท เซเว่น โลกรถ จำกัด",
-        stars: 4.5,
-        reviews: 216
-      },
-      price: {
-        daily: 795,
-        total: 1590,
-        days: 2
-      },
-      buttonText: "รายละเอียดรถเช่า"
+      price: 795,
     },
     {
       id:2,
